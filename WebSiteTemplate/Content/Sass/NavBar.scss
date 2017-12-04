@@ -1,7 +1,19 @@
-﻿.test{
-    background-color:blue;
-    height:100px;
+﻿.Navbar {
+    @extend .row;
+    background-color: #292b2c;
 }
-a{
-        display: flex;
+
+.Navbar > a {
+    @extend .col-25;
+    background-color: blue;
+    text-align: center;
+}
+
+.Navbar > input {
+    @include button-outline-variant(white);
+}
+
+.Navbar > button {
+    color: white;
+    border-radius: 5px;
 }

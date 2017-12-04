@@ -1,6 +1,12 @@
-.test {
-  background-color: blue;
-  height: 100px; }
+.Navbar {
+  padding: 5px;
+  background-color: #292b2c; }
 
-a {
-  display: flex; }
+.Navbar > a {
+  padding: 5px;
+  background-color: blue;
+  text-align: center; }
+
+.Navbar > button {
+  color: white;
+  border-radius: 5px; }

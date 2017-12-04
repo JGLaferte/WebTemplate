@@ -4,11 +4,6 @@
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--include CombiledFile-->
-  <ItemGroup>
-    <Content Include="Content\Css\Footer.css" />
-    <Content Include="Content\Css\Jumbotron.css" />
-    <Content Include="Content\Css\NavBar.css" />
-  </ItemGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -125,9 +120,19 @@
   <ItemGroup>
     <Content Include="Content\Css\Site.css" />
     <Content Include="Content\Css\Site.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="Scripts\Bootstrap\alert.js" />
+    <Content Include="Scripts\Bootstrap\button.js" />
+    <Content Include="Scripts\Bootstrap\carousel.js" />
+    <Content Include="Scripts\Bootstrap\collapse.js" />
+    <Content Include="Scripts\Bootstrap\dropdown.js" />
+    <Content Include="Scripts\Bootstrap\modal.js" />
+    <Content Include="Scripts\Bootstrap\popover.js" />
+    <Content Include="Scripts\Bootstrap\scrollspy.js" />
+    <Content Include="Scripts\Bootstrap\tab.js" />
+    <Content Include="Scripts\Bootstrap\tooltip.js" />
+    <Content Include="Scripts\Bootstrap\util.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -148,12 +153,92 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Sass\Bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\Sass\Bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\Sass\Bootstrap\bootstrap.scss" />
+    <Content Include="Content\Sass\Bootstrap\_alert.scss" />
+    <Content Include="Content\Sass\Bootstrap\_badge.scss" />
+    <Content Include="Content\Sass\Bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\Sass\Bootstrap\_button-group.scss" />
+    <Content Include="Content\Sass\Bootstrap\_buttons.scss" />
+    <Content Include="Content\Sass\Bootstrap\_card.scss" />
+    <Content Include="Content\Sass\Bootstrap\_carousel.scss" />
+    <Content Include="Content\Sass\Bootstrap\_close.scss" />
+    <Content Include="Content\Sass\Bootstrap\_code.scss" />
+    <Content Include="Content\Sass\Bootstrap\_custom-forms.scss" />
+    <Content Include="Content\Sass\Bootstrap\_custom.scss" />
+    <Content Include="Content\Sass\Bootstrap\_dropdown.scss" />
+    <Content Include="Content\Sass\Bootstrap\_forms.scss" />
+    <Content Include="Content\Sass\Bootstrap\_grid.scss" />
+    <Content Include="Content\Sass\Bootstrap\_images.scss" />
+    <Content Include="Content\Sass\Bootstrap\_input-group.scss" />
+    <Content Include="Content\Sass\Bootstrap\_jumbotron.scss" />
+    <Content Include="Content\Sass\Bootstrap\_list-group.scss" />
+    <Content Include="Content\Sass\Bootstrap\_media.scss" />
+    <Content Include="Content\Sass\Bootstrap\_mixins.scss" />
+    <Content Include="Content\Sass\Bootstrap\_modal.scss" />
+    <Content Include="Content\Sass\Bootstrap\_nav.scss" />
+    <Content Include="Content\Sass\Bootstrap\_navbar.scss" />
+    <Content Include="Content\Sass\Bootstrap\_normalize.scss" />
+    <Content Include="Content\Sass\Bootstrap\_pagination.scss" />
+    <Content Include="Content\Sass\Bootstrap\_popover.scss" />
+    <Content Include="Content\Sass\Bootstrap\_print.scss" />
+    <Content Include="Content\Sass\Bootstrap\_progress.scss" />
+    <Content Include="Content\Sass\Bootstrap\_reboot.scss" />
+    <Content Include="Content\Sass\Bootstrap\_responsive-embed.scss" />
+    <Content Include="Content\Sass\Bootstrap\_tables.scss" />
+    <Content Include="Content\Sass\Bootstrap\_tooltip.scss" />
+    <Content Include="Content\Sass\Bootstrap\_transitions.scss" />
+    <Content Include="Content\Sass\Bootstrap\_type.scss" />
+    <Content Include="Content\Sass\Bootstrap\_utilities.scss" />
+    <Content Include="Content\Sass\Bootstrap\_variables.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_align.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_background.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_display.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_float.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_position.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_text.scss" />
+    <Content Include="Content\Sass\Bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_cards.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_float.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_image.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_navbar-align.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_size.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_transforms.scss" />
+    <Content Include="Content\Sass\Bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\Sass\Bootstrap\bootstrap - Copy.scss" />
+    <Content Include="Content\Sass\Site.scss" />
     <Content Include="Content\Sass\NavBar.scss" />
-    <Content Include="Content\Sass\Jumbotron.scss" />
-    <Content Include="Content\Sass\Footer.scss" />
+    <Content Include="Content\Sass\Layout.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -163,8 +248,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

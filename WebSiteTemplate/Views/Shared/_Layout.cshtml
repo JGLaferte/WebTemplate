@@ -4,10 +4,75 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TemplateWebSite</title>
-    <link rel="stylesheet" type="text/css" href="~/Content/Css/Site.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/Css/Site.min.css" />
 
 </head>
 <body>
-        @RenderBody()
+    <div id="Layout">
+        <nav class="navbar navbar-toggleable-md navbar navbar-inverse bg-inverse">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Navbar</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="display-3">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+    </div>
+    <div class="container" style="background-color: blue;">
+        @RenderBody();
+    </div>
+
+<div class="container-fluid">
+    footer
+</div>
+
+
+    <script type="text/javascript" src="~/Scripts/Bootstrap/alert.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/button.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/carousel.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/collapse.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/dropdown.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/modal.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/popover.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/scrollspy.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/tab.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/tooltip.js" />
+    <script type="text/javascript" src="~/Scripts/Bootstrap/util.js" />
 </body>
 </html>

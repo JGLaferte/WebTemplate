@@ -1,4 +1,4 @@
-﻿//Packages variable 
+﻿//Packages Variable 
 var gulp = require('gulp');
 var compileSass = require('gulp-sass');
 var concatenateFiles = require('gulp-useref');
@@ -13,14 +13,15 @@ var browserSync = require('browser-sync').create();
 
 
 
-//Structurevariable
-var SassFiles = "./Content/Sass/**/*.scss";
+//Structure Variable
+var SassFiles = "./Content/Sass/*.scss";
 var sassCompileDestination = "./Content/Css";
 var cssMainFile = sassCompileDestination + "/Site.css";
 
 gulp.task('InitBrowserSync', function () {
     var files = [
-        'Content/**/*.css'      
+        'Content/**/*.css',
+        'Views/**/*.cshtml'
     ];
 
     browserSync.init(files, {
@@ -30,7 +31,7 @@ gulp.task('InitBrowserSync', function () {
 });
 
 gulp.task('CompileSass', function () {
-    return gulp.src(SassFiles)
+    return gulp.src("./Content/Sass/Site.scss")
         .pipe(compileSass())
         .pipe(gulp.dest(sassCompileDestination));
 });
@@ -38,6 +39,7 @@ gulp.task('CompileSass', function () {
 gulp.task('ConcatCss', function () {
     return gulp.src
         ([
+            './Content/Css/Bootstrap.css',
             './Content/Css/NavBar.css',
             './Content/Css/Jumbotron.css',
             './Content/Css/Footer.css'
@@ -50,19 +52,19 @@ gulp.task('ConcatCss', function () {
 gulp.task('MinifyCss', function () {
     return gulp.src(cssMainFile)
         .pipe(rename('Site.min.css'))
-        .pipe(minifyCss())        
+        .pipe(minifyCss())
         .pipe(gulp.dest(sassCompileDestination));
 });
 
-gulp.task('Autoprefixing', function() {
+gulp.task('Autoprefixing', function () {
     gulp.src(sassCompileDestination + "/Site.min.css")
-            .pipe(autoprefixer({browsers: ['last 2 versions'],cascade: false}))
+            .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
             .pipe(gulp.dest(sassCompileDestination));
-    }
+}
 );
 
 gulp.task('CssCompileFlow', function (callback) {
-    runSequence(['CompileSass'], ['ConcatCss'], ['MinifyCss'], ['Autoprefixing'], ['ReloadBrowser'], callback);
+    runSequence(['CompileSass'], ['MinifyCss'], ['Autoprefixing'], ['ReloadBrowser'], callback);
 });
 
 gulp.task('ReloadBrowser', function (callback) {
@@ -74,6 +76,6 @@ gulp.task('ReloadBrowser', function (callback) {
 
 
 gulp.task('watch', ['InitBrowserSync'], function () {
-    
+
     return gulp.watch(SassFiles, ['CssCompileFlow']);
 });
