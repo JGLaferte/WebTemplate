@@ -8,13 +8,28 @@ var runSequence = require('run-sequence');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
+var purify = require('gulp-purifycss');
 var browserSync = require('browser-sync').create();
+var sourcemaps = require('gulp-sourcemaps');
+var imagemin = require('gulp-imagemin');
 
 
+gulp.task('images', function () {
+    return gulp.src('./Content/Images/**/*.*')
+        .pipe(imagemin([
+                imagemin.gifsicle({ interlaced: true }),
+                imagemin.jpegtran({ progressive: true }),
+                imagemin.optipng({ optimizationLevel: 5 })]),
+                imagemin.svgo({plugins: [{ removeViewBox: true },{ cleanupIDs: true }]})
+                )
+
+        .pipe(gulp.dest('./Content/Distribution'));
+});
 
 
 //Structure Variable
-var SassFiles = "./Content/Sass/*.scss";
+var SassFiles = "./Content/Sass/**/*.scss";
+var cshtmlFiles = 'Views/**/*.cshtml';
 var sassCompileDestination = "./Content/Css";
 var cssMainFile = sassCompileDestination + "/Site.css";
 
@@ -25,29 +40,25 @@ gulp.task('InitBrowserSync', function () {
     ];
 
     browserSync.init(files, {
-
         proxy: "http://localhost:50135/"
     });
 });
 
 gulp.task('CompileSass', function () {
     return gulp.src("./Content/Sass/Site.scss")
+
         .pipe(compileSass())
+
         .pipe(gulp.dest(sassCompileDestination));
 });
 
-gulp.task('ConcatCss', function () {
-    return gulp.src
-        ([
-            './Content/Css/Bootstrap.css',
-            './Content/Css/NavBar.css',
-            './Content/Css/Jumbotron.css',
-            './Content/Css/Footer.css'
-
-        ])
-        .pipe(concat('Site.css'))
+gulp.task('PurifyCss', function () {
+    return gulp.src(cssMainFile)
+        .pipe(purify(['Views/**/*.cshtml']))
         .pipe(gulp.dest(sassCompileDestination));
 });
+
+
 
 gulp.task('MinifyCss', function () {
     return gulp.src(cssMainFile)
@@ -64,7 +75,7 @@ gulp.task('Autoprefixing', function () {
 );
 
 gulp.task('CssCompileFlow', function (callback) {
-    runSequence(['CompileSass'], ['MinifyCss'], ['Autoprefixing'], ['ReloadBrowser'], callback);
+    runSequence(['CompileSass'], ['PurifyCss'], ['MinifyCss'], ['Autoprefixing'], ['ReloadBrowser'], callback);
 });
 
 gulp.task('ReloadBrowser', function (callback) {
@@ -77,5 +88,5 @@ gulp.task('ReloadBrowser', function (callback) {
 
 gulp.task('watch', ['InitBrowserSync'], function () {
 
-    return gulp.watch(SassFiles, ['CssCompileFlow']);
+    return gulp.watch([SassFiles, cshtmlFiles], ['CssCompileFlow']);
 });

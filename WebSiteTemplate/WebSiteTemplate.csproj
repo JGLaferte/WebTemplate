@@ -120,6 +120,8 @@
   <ItemGroup>
     <Content Include="Content\Css\Site.css" />
     <Content Include="Content\Css\Site.min.css" />
+    <Content Include="Content\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Images\TestImg2.jpg" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\Bootstrap\alert.js" />
@@ -235,10 +237,27 @@
     <Content Include="Content\Sass\Bootstrap\mixins\_text-truncate.scss" />
     <Content Include="Content\Sass\Bootstrap\mixins\_transforms.scss" />
     <Content Include="Content\Sass\Bootstrap\mixins\_visibility.scss" />
-    <Content Include="Content\Sass\Bootstrap\bootstrap - Copy.scss" />
     <Content Include="Content\Sass\Site.scss" />
-    <Content Include="Content\Sass\NavBar.scss" />
     <Content Include="Content\Sass\Layout.scss" />
+    <Content Include="Content\Fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Fonts\FontAwesome.otf" />
+    <Content Include="Content\Sass\FontAwsome\font-awesome.scss" />
+    <Content Include="Content\Sass\FontAwsome\_animated.scss" />
+    <Content Include="Content\Sass\FontAwsome\_bordered-pulled.scss" />
+    <Content Include="Content\Sass\FontAwsome\_core.scss" />
+    <Content Include="Content\Sass\FontAwsome\_fixed-width.scss" />
+    <Content Include="Content\Sass\FontAwsome\_icons.scss" />
+    <Content Include="Content\Sass\FontAwsome\_larger.scss" />
+    <Content Include="Content\Sass\FontAwsome\_list.scss" />
+    <Content Include="Content\Sass\FontAwsome\_mixins.scss" />
+    <Content Include="Content\Sass\FontAwsome\_path.scss" />
+    <Content Include="Content\Sass\FontAwsome\_rotated-flipped.scss" />
+    <Content Include="Content\Sass\FontAwsome\_screen-reader.scss" />
+    <Content Include="Content\Sass\FontAwsome\_stacked.scss" />
+    <Content Include="Content\Sass\FontAwsome\_variables.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -248,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Distribution\" />
     <Folder Include="fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
